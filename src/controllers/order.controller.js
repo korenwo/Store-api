@@ -21,7 +21,8 @@ class OrderController {
         try {
             const order = new Order({
                 order: req.body.order,
-                price: req.body.price 
+                price: req.body.price, 
+                date: req.body.date
             });
             const createdOrder = await order.save();
             res.status(201).send(createdOrder);
