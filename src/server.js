@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const routes = require('./config/routes');
 const app = express();
-const port = 4001;
+const { port, dbUrl } = require('./config/environment/index');
 
 app.options('*', cors()) // include before other routes 
 app.use(cors())
@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
     res.send('works!');
 });
 
-mongoose.connect('mongodb://localhost/store', {
+mongoose.connect(dbUrl, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });

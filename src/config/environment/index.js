@@ -1,4 +1,4 @@
-const development = require('./development.js');
+const development = require('./development');
 const production = require('./production');
 
 let environment = development;
